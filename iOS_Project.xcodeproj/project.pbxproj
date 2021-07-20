@@ -16,6 +16,7 @@
 		1FA17E69269C63F80080429B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA17E67269C63F80080429B /* LaunchScreen.storyboard */; };
 		1FA17E74269C63F90080429B /* iOS_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E73269C63F90080429B /* iOS_ProjectTests.swift */; };
 		1FA17E7F269C63F90080429B /* iOS_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E7E269C63F90080429B /* iOS_ProjectUITests.swift */; };
+		1FB4EF6826A771DB007BF018 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1FA17E7A269C63F90080429B /* iOS_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA17E7E269C63F90080429B /* iOS_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ProjectUITests.swift; sourceTree = "<group>"; };
 		1FA17E80269C63F90080429B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				1FA17E58269C63F60080429B /* AppDelegate.swift */,
 				1F933C4F26A5938000AB70B6 /* Card.swift */,
 				1FA17E5E269C63F60080429B /* GameScene.swift */,
+				1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */,
 				1FA17E60269C63F60080429B /* GameViewController.swift */,
 				1FA17E62269C63F60080429B /* Main.storyboard */,
 				1FA17E65269C63F80080429B /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB4EF6826A771DB007BF018 /* MainMenuScene.swift in Sources */,
 				1FA17E5F269C63F60080429B /* GameScene.swift in Sources */,
 				1FA17E61269C63F60080429B /* GameViewController.swift in Sources */,
 				1FA17E59269C63F60080429B /* AppDelegate.swift in Sources */,
