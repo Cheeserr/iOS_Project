@@ -38,15 +38,26 @@ class MainMenuScene: SKScene{
     with event: UIEvent?) {
        if let touch = touches.first{
         let location = touch.previousLocation(in: self)
-        let node = self.nodes(at: location).first
+        let node = self.nodes(at: location).first as? SKLabelNode
+        
+        if node?.name == "Start"{
+            node?.fontColor = SKColor.green
+            node?.fontSize = 60
+        }
+        
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first{
+        let location = touch.previousLocation(in: self)
+        let node = self.nodes(at: location).first as? SKLabelNode
         
         if node?.name == "Start"{
             let gameScene = GameScene(size: size)
             gameScene.scaleMode = scaleMode
             
-            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            
-            view?.presentScene(gameScene, transition: reveal)
+            view?.presentScene(gameScene)
         }
         
         }
