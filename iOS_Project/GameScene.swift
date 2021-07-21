@@ -17,17 +17,20 @@ class GameScene: SKScene{
         backgroundColor = SKColor.white
         
         var set: Set<Card> = []
-        let cardDistance = 250
+        
+        let cardDistanceX = 250
+        let cardDistanceY = 400
+        var value = -1
+        var value2 = 0
         
         for _ in 0...11{
             let card = Card(imageNamed: "cowGame")
             set.insert(card)
         }
-        var value = -1
-        var value2 = 0
+        
         for cards in set{
             cards.setScale(0.1)
-            cards.position = CGPoint(x: value * cardDistance , y: value2 * cardDistance)
+            cards.position = CGPoint(x: value * cardDistanceX , y: value2 * cardDistanceY)
             value += 1
             if(value > 1){
                 value = -1
@@ -62,6 +65,9 @@ class GameScene: SKScene{
         if(set[0].id != set[1].id){
             set[0].pressed = false
             set[1].pressed = false
+        }else{
+            set[0].removeFromParent()
+            set[1].removeFromParent()
         }
             cardTouched = false
     }
