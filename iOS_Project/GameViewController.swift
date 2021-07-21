@@ -14,6 +14,7 @@ class GameViewController: UIViewController{
         super.viewDidLoad()
         let scene =
             MainMenuScene(size:CGSize(width: 1536, height: 2048))
+        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         let skView = self.view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true

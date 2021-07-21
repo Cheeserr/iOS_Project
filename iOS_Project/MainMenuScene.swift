@@ -26,7 +26,7 @@ class MainMenuScene: SKScene{
         start.name = "Start"
         start.fontSize = 65
         start.fontColor = SKColor.white
-        start.position = CGPoint(x: size.width/2, y: size.height/2)
+        start.position = CGPoint(x: 0, y: 0)
         
         addChild(start)
         
@@ -56,7 +56,7 @@ class MainMenuScene: SKScene{
         if node?.name == "Start"{
             let gameScene = GameScene(size: size)
             gameScene.scaleMode = scaleMode
-            
+            gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             view?.presentScene(gameScene)
         }
         
