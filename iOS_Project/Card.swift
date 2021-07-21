@@ -12,7 +12,6 @@ import SpriteKit
 class Card: SKSpriteNode {
     
     var pressed = false
-    var matched = false
     var id = 0
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {

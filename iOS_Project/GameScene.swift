@@ -10,9 +10,11 @@ import SpriteKit
 
 class GameScene: SKScene{
     
+    var cardTouched = false
+    var toCheck: [Card] = []
+    
     override func didMove(to view: SKView){
         var set: Set<Card> = []
-
         
         backgroundColor = SKColor.white
         let card1 = Card(imageNamed: "cowGame")
@@ -38,20 +40,24 @@ class GameScene: SKScene{
         
         if node?.pressed == false{
             node?.pressed = true
+            toCheck.append(node!)
             print("Card pressed")
             // TURN CARD
+            if(cardTouched){
+                checkMatch(set: toCheck)
+                toCheck.removeAll()
+            }else{
+                cardTouched = true
+            }
             }
         }
     }
     
-    func checkMatch(card1: Card, card2: Card){
-        if(card1.id == card2.id){
-            card1.matched = true
-            card2.matched = true
-        }else{
-            card1.pressed = false
-            // TURN CARDS BACK
-            card2.pressed = false
+    func checkMatch(set: [Card]){
+        if(set[0].id != set[1].id){
+            set[0].pressed = false
+            set[1].matched = false
         }
+            cardTouched = false
     }
 }
