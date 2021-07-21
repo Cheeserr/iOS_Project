@@ -14,22 +14,27 @@ class GameScene: SKScene{
     var toCheck: [Card] = []
     
     override func didMove(to view: SKView){
-        var set: Set<Card> = []
-        
         backgroundColor = SKColor.white
-        let card1 = Card(imageNamed: "cowGame")
-        card1.name = "cow"
-        card1.position = CGPoint(x: 0, y: 0)
-        card1.setScale(0.1)
-        set.insert(card1)
-        addChild(card1)
         
-        let card2 = Card(imageNamed: "elephantGame")
-        card2.name = "elephant"
-        card2.position = CGPoint(x: 250, y: 0)
-        card2.setScale(0.05)
-        set.insert(card1)
-        addChild(card2)
+        var set: Set<Card> = []
+        let cardDistance = 250
+        
+        for _ in 0...11{
+            let card = Card(imageNamed: "cowGame")
+            set.insert(card)
+        }
+        var value = -1
+        var value2 = 0
+        for cards in set{
+            cards.setScale(0.1)
+            cards.position = CGPoint(x: value * cardDistance , y: value2 * cardDistance)
+            value += 1
+            if(value > 1){
+                value = -1
+                value2 += 1
+            }
+            addChild(cards)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,
@@ -56,7 +61,7 @@ class GameScene: SKScene{
     func checkMatch(set: [Card]){
         if(set[0].id != set[1].id){
             set[0].pressed = false
-            set[1].matched = false
+            set[1].pressed = false
         }
             cardTouched = false
     }

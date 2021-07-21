@@ -56,7 +56,7 @@ class MainMenuScene: SKScene{
         if node?.name == "Start"{
             let gameScene = GameScene(size: size)
             gameScene.scaleMode = scaleMode
-            gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.2)
             view?.presentScene(gameScene)
         }
         
