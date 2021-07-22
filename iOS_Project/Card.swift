@@ -2,7 +2,7 @@
 //  Card.swift
 //  iOS_Project
 //
-//  Created by Aleksandra on 19/07/2021.
+//  Created by Sergiusz Pietrala on 19/07/2021.
 //  Copyright © 2021 Sergiusz Pietrala. All rights reserved.
 //
 

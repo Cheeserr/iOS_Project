@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  iOS_Project
 //
-//  Created by Aleksandra on 12/07/2021.
+//  Created by Sergiusz Pietrala on 12/07/2021.
 //  Copyright © 2021 Sergiusz Pietrala. All rights reserved.
 //
 
@@ -82,5 +82,9 @@ class GameScene: SKScene{
             gameScene.scaleMode = scaleMode
             gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             view?.presentScene(gameScene)
+    }
+    
+    func flipCard(id: Int){
+        
     }
 }
