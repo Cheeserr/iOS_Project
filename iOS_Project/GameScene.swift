@@ -12,6 +12,7 @@ class GameScene: SKScene{
     
     var cardTouched = false
     var toCheck: [Card] = []
+    var matches = 0
     
     override func didMove(to view: SKView){
         backgroundColor = SKColor.white
@@ -68,7 +69,18 @@ class GameScene: SKScene{
         }else{
             set[0].removeFromParent()
             set[1].removeFromParent()
+            matches += 1
+        }
+        if(matches > 5){
+            endGame()
         }
             cardTouched = false
+    }
+    
+    func endGame(){
+            let gameScene = EndScene(size: size)
+            gameScene.scaleMode = scaleMode
+            gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            view?.presentScene(gameScene)
     }
 }

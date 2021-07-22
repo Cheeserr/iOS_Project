@@ -17,6 +17,7 @@
 		1FA17E74269C63F90080429B /* iOS_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E73269C63F90080429B /* iOS_ProjectTests.swift */; };
 		1FA17E7F269C63F90080429B /* iOS_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E7E269C63F90080429B /* iOS_ProjectUITests.swift */; };
 		1FB4EF6826A771DB007BF018 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */; };
+		314F444926AA134B002997F5 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F444826AA134A002997F5 /* EndScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1FA17E7E269C63F90080429B /* iOS_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ProjectUITests.swift; sourceTree = "<group>"; };
 		1FA17E80269C63F90080429B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		314F444826AA134A002997F5 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				1F933C4F26A5938000AB70B6 /* Card.swift */,
 				1FA17E5E269C63F60080429B /* GameScene.swift */,
 				1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */,
+				314F444826AA134A002997F5 /* EndScene.swift */,
 				1FA17E60269C63F60080429B /* GameViewController.swift */,
 				1FA17E62269C63F60080429B /* Main.storyboard */,
 				1FA17E65269C63F80080429B /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314F444926AA134B002997F5 /* EndScene.swift in Sources */,
 				1FB4EF6826A771DB007BF018 /* MainMenuScene.swift in Sources */,
 				1FA17E5F269C63F60080429B /* GameScene.swift in Sources */,
 				1FA17E61269C63F60080429B /* GameViewController.swift in Sources */,
