@@ -26,13 +26,13 @@ class GameScene: SKScene{
         
         for i in 1...12{
             
-            let card = Card(imageNamed: String(i/2))
+            let card = Card(imageNamed: "CardBack")
             card.id = i/2
             set.insert(card)
         }
         
         for cards in set.shuffled(){
-            cards.setScale(0.1)
+            cards.setScale(1)
             cards.position = CGPoint(x: value * cardDistanceX , y: value2 * cardDistanceY)
             value += 1
             if(value > 1){
@@ -51,6 +51,7 @@ class GameScene: SKScene{
         
         if node?.pressed == false{
             node?.pressed = true
+            flipCard(node: node!)
             toCheck.append(node!)
             print("Card pressed")
             // TURN CARD
@@ -68,6 +69,8 @@ class GameScene: SKScene{
         if(set[0].id != set[1].id){
             set[0].pressed = false
             set[1].pressed = false
+            flipBack(node: set[0])
+            flipBack(node: set[1])
         }else{
             set[0].removeFromParent()
             set[1].removeFromParent()
@@ -86,7 +89,25 @@ class GameScene: SKScene{
             view?.presentScene(gameScene)
     }
     
-    func flipCard(id: Int){
+    func flipCard(node: Card){
+        let flip = SKAction.scaleX(to: -1, duration: 0.4)
         
+        let changeColor = SKAction.run({
+            node.texture = SKTexture(imageNamed: String(node.id))
+        })
+        let action = SKAction.sequence([flip, changeColor])
+        
+        node.run(action)
+    }
+    
+    func flipBack(node: Card){
+        let flip = SKAction.scaleX(to: -1, duration: 0.4)
+        
+        let changeColor = SKAction.run({
+            node.texture = SKTexture(imageNamed: "CardBack")
+        })
+        let action = SKAction.sequence([flip, changeColor])
+        
+        node.run(action)
     }
 }
