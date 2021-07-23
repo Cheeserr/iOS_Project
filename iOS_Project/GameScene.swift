@@ -24,12 +24,14 @@ class GameScene: SKScene{
         var value = -1
         var value2 = 0
         
-        for _ in 0...11{
-            let card = Card(imageNamed: "cowGame")
+        for i in 1...12{
+            
+            let card = Card(imageNamed: String(i/2))
+            card.id = i/2
             set.insert(card)
         }
         
-        for cards in set{
+        for cards in set.shuffled(){
             cards.setScale(0.1)
             cards.position = CGPoint(x: value * cardDistanceX , y: value2 * cardDistanceY)
             value += 1
