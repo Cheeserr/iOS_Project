@@ -45,16 +45,16 @@ class GameScene: SKScene{
     
     override func touchesBegan(_ touches: Set<UITouch>,
     with event: UIEvent?) {
+        self.view?.isUserInteractionEnabled = false
        if let touch = touches.first{
         let location = touch.previousLocation(in: self)
         let node = self.nodes(at: location).first as? Card
         
         if node?.pressed == false{
-            node?.pressed = true
-            flipCard(node: node!)
+            flipCard(node: node!, flipped: node!.pressed)
+            node!.pressed = true
             toCheck.append(node!)
             print("Card pressed")
-            // TURN CARD
             if(cardTouched){
                 checkMatch(set: toCheck)
                 toCheck.removeAll()
@@ -63,17 +63,20 @@ class GameScene: SKScene{
             }
             }
         }
+        self.view?.isUserInteractionEnabled = true
     }
     
     func checkMatch(set: [Card]){
         if(set[0].id != set[1].id){
-            set[0].pressed = false
-            set[1].pressed = false
             flipBack(node: set[0])
             flipBack(node: set[1])
+            set[0].pressed = false
+            set[1].pressed = false
         }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             set[0].removeFromParent()
             set[1].removeFromParent()
+            }
             matches += 1
         }
         if(matches > 5){
@@ -89,25 +92,26 @@ class GameScene: SKScene{
             view?.presentScene(gameScene)
     }
     
-    func flipCard(node: Card){
-        let flip = SKAction.scaleX(to: -1, duration: 0.4)
+    func flipCard(node: Card, flipped: Bool){
+        let flip = SKAction.scaleX(to: 0, duration: 0.2)
+        let flip2 = SKAction.scaleX(to: -1, duration: 0.2)
         
         let changeColor = SKAction.run({
-            node.texture = SKTexture(imageNamed: String(node.id))
+                node.texture = SKTexture(imageNamed: String(node.id))
         })
-        let action = SKAction.sequence([flip, changeColor])
-        
-        node.run(action)
+            let action = SKAction.sequence([flip, changeColor, flip2])
+            node.run(action)
     }
     
     func flipBack(node: Card){
-        let flip = SKAction.scaleX(to: -1, duration: 0.4)
-        
+        let flip = SKAction.scaleX(to: 0, duration: 0.4)
+        let flip2 = SKAction.scaleX(to: 1, duration: 0.4)
         let changeColor = SKAction.run({
-            node.texture = SKTexture(imageNamed: "CardBack")
+            node.texture = SKTexture(imageNamed: String("CardBack"))
         })
-        let action = SKAction.sequence([flip, changeColor])
-        
-        node.run(action)
+        let action = SKAction.sequence([flip, changeColor, flip2])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            node.run(action)
+        }
     }
 }
