@@ -14,6 +14,7 @@ class GameScene: SKScene{
     var toCheck: [Card] = []
     var matches = 0
     var type = 0
+    var moves = 0
     
     override func didMove(to view: SKView){
         self.view!.isUserInteractionEnabled = false
@@ -28,9 +29,8 @@ class GameScene: SKScene{
         
         // Creating cards and putting them into set
         for i in 0...11{
-            
             let card = Card(imageNamed: "CardBack")
-            card.id = i/2
+            card.id = i
             set.insert(card)
         }
         
@@ -38,7 +38,7 @@ class GameScene: SKScene{
         // Shuffling and positioning cards
         for cards in set.shuffled(){
             DispatchQueue.main.asyncAfter(deadline: .now() + i){
-            self.flipCard(node: cards)
+                self.flipCard(node: cards)
             }
             i += 0.2
             cards.setScale(1)
@@ -57,44 +57,45 @@ class GameScene: SKScene{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,
-    with event: UIEvent?) {
-       if let touch = touches.first{
-        let location = touch.previousLocation(in: self)
-        let node = self.nodes(at: location).first as? Card
-        
-        if node?.pressed == false{
-            self.view!.isUserInteractionEnabled = false
-            flipCard(node: node!)
-            node!.pressed = true
-            toCheck.append(node!)
-            print("Card pressed")
-            if(cardTouched){
-                checkMatch(set: toCheck)
-                toCheck.removeAll()
-            }else{
-                cardTouched = true
-                self.view!.isUserInteractionEnabled = true
-            }
+                               with event: UIEvent?) {
+        if let touch = touches.first{
+            let location = touch.previousLocation(in: self)
+            let node = self.nodes(at: location).first as? Card
+            
+            if node?.pressed == false{
+                self.view!.isUserInteractionEnabled = false
+                flipCard(node: node!)
+                node!.pressed = true
+                toCheck.append(node!)
+                print("Card pressed")
+                if(cardTouched){
+                    checkMatch(set: toCheck)
+                    toCheck.removeAll()
+                }else{
+                    cardTouched = true
+                    self.view!.isUserInteractionEnabled = true
+                }
             }
         }
     }
     
     func checkMatch(set: [Card]){
+        moves += 1
         // Checking if cards match
         // If not flip back
-        if(set[0].id != set[1].id){
+        if(set[0].id == set[1].id || set[0].id + 6 == set[1].id ||  set[0].id == set[1].id + 6){
+            // If they do, get rid of them after delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                set[0].removeFromParent()
+                set[1].removeFromParent()
+                self.view!.isUserInteractionEnabled = true
+            }
+            matches += 1
+        }else{
             flipBack(node: set[0])
             flipBack(node: set[1])
             set[0].pressed = false
             set[1].pressed = false
-        }else{
-            // If they do, get rid of them after delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            set[0].removeFromParent()
-            set[1].removeFromParent()
-            self.view!.isUserInteractionEnabled = true
-            }
-            matches += 1
         }
         // If no cards displayed, end game
         if(matches > 5){
@@ -102,15 +103,16 @@ class GameScene: SKScene{
                 self.endGame()
             }
         }
-            cardTouched = false
+        cardTouched = false
     }
     
     // Changing scene to the end game
     func endGame(){
-            let gameScene = EndScene(size: size)
-            gameScene.scaleMode = scaleMode
-            gameScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            view?.presentScene(gameScene)
+        let endScene = EndScene(size: size)
+        endScene.scaleMode = scaleMode
+        endScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        endScene.moves = moves
+        view?.presentScene(endScene)
     }
     
     func flipCard(node: Card){
@@ -118,10 +120,10 @@ class GameScene: SKScene{
         let flip2 = SKAction.scaleX(to: -1, duration: 0.3)
         
         let changeColor = SKAction.run({
-                node.texture = SKTexture(imageNamed: String(node.id))
+            node.texture = SKTexture(imageNamed: String(node.id))
         })
-            let action = SKAction.sequence([flip, changeColor, flip2])
-            node.run(action)
+        let action = SKAction.sequence([flip, changeColor, flip2])
+        node.run(action)
     }
     
     func flipBack(node: Card){
@@ -133,8 +135,8 @@ class GameScene: SKScene{
         let action = SKAction.sequence([flip, changeColor, flip2])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
             node.run(action)
-               self.view!.isUserInteractionEnabled = true
-
+            self.view!.isUserInteractionEnabled = true
+            
         }
     }
 }

@@ -11,6 +11,8 @@ import SpriteKit
 
 class EndScene: SKScene{
     
+    var moves = 0
+    
     override init(size: CGSize){
         super.init(size: size)
     }
@@ -20,7 +22,7 @@ class EndScene: SKScene{
     }
 
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor.red
+        backgroundColor = SKColor.blue
         
         let start = SKLabelNode(fontNamed: "Chalkduster")
         start.text = "Game Over"
@@ -39,6 +41,15 @@ class EndScene: SKScene{
         mainMenu.position = CGPoint(x: 0, y: -400)
         
         addChild(mainMenu)
+        
+        let movesCount = SKLabelNode(fontNamed: "Chalkduster")
+        movesCount.text = "Moves : " + String(moves)
+        movesCount.name = "MoveCount"
+        movesCount.fontSize = 70
+        movesCount.fontColor = SKColor.white
+        movesCount.position = CGPoint(x: 0, y: -600)
+        
+        addChild(movesCount)
     }
     
     
