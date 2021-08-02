@@ -13,8 +13,10 @@ class GameScene: SKScene{
     var cardTouched = false
     var toCheck: [Card] = []
     var matches = 0
+    var type = 0
     
     override func didMove(to view: SKView){
+        self.view!.isUserInteractionEnabled = false
         backgroundColor = SKColor.white
         
         var set: Set<Card> = []
@@ -32,8 +34,13 @@ class GameScene: SKScene{
             set.insert(card)
         }
         
+        var i = 0.2
         // Shuffling and positioning cards
         for cards in set.shuffled(){
+            DispatchQueue.main.asyncAfter(deadline: .now() + i){
+            self.flipCard(node: cards)
+            }
+            i += 0.2
             cards.setScale(1)
             cards.position = CGPoint(x: value * cardDistanceX , y: value2 * cardDistanceY)
             value += 1
@@ -42,6 +49,10 @@ class GameScene: SKScene{
                 value2 += 1
             }
             addChild(cards)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+                self.flipBack(node: cards)
+            }
         }
     }
     
@@ -87,7 +98,9 @@ class GameScene: SKScene{
         }
         // If no cards displayed, end game
         if(matches > 5){
-            endGame()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.endGame()
+            }
         }
             cardTouched = false
     }
