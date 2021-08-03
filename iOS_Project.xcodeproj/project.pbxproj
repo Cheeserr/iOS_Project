@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F58D08B26B9C8DE002337C0 /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F58D08A26B9C8DE002337C0 /* 1.txt */; };
 		1F933C5026A5938000AB70B6 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F933C4F26A5938000AB70B6 /* Card.swift */; };
 		1FA17E59269C63F60080429B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E58269C63F60080429B /* AppDelegate.swift */; };
 		1FA17E5F269C63F60080429B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E5E269C63F60080429B /* GameScene.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F58D08A26B9C8DE002337C0 /* 1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
 		1F933C4F26A5938000AB70B6 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1FA17E55269C63F60080429B /* iOS_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA17E58269C63F60080429B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				1FA17E7D269C63F90080429B /* iOS_ProjectUITests */,
 				1FA17E56269C63F60080429B /* Products */,
 				317EB64926B8AC5F00C48078 /* 0.txt */,
+				1F58D08A26B9C8DE002337C0 /* 1.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F58D08B26B9C8DE002337C0 /* 1.txt in Resources */,
 				1FA17E64269C63F60080429B /* Main.storyboard in Resources */,
 				1FA17E66269C63F80080429B /* Assets.xcassets in Resources */,
 				1FA17E69269C63F80080429B /* LaunchScreen.storyboard in Resources */,

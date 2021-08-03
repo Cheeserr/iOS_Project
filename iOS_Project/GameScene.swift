@@ -122,7 +122,7 @@ class GameScene: SKScene{
         let flip2 = SKAction.scaleX(to: -1, duration: 0.3)
         
         let changeColor = SKAction.run({
-            node.texture = SKTexture(imageNamed: String(node.id))
+            node.texture = SKTexture(imageNamed: self.cardNames[node.id])
         })
         let action = SKAction.sequence([flip, changeColor, flip2])
         node.run(action)
@@ -149,7 +149,7 @@ class GameScene: SKScene{
            if let dataFromFile = try? String(contentsOf: path) {
                let lines = dataFromFile.split(separator:"\n")
                for i in 0...11{
-                 print(lines[i])
+                cardNames.append(String(lines[i]))
                }
                }
             }
