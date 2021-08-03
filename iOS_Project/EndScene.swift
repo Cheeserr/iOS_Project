@@ -25,7 +25,13 @@ class EndScene: SKScene{
         backgroundColor = SKColor.blue
         
         let start = SKLabelNode(fontNamed: "Chalkduster")
-        start.text = "Game Over"
+        if(moves <= 6){
+        start.text = "Perfect!"
+        }else if(moves <= 9){
+            start.text = "Well done"
+        }else{
+            start.text = "Try Again"
+        }
         start.name = "Game Over"
         start.fontSize = 80
         start.fontColor = SKColor.white

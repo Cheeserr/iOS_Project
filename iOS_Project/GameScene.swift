@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene{
     
+    var cardNames: [String] = []
     var cardTouched = false
     var toCheck: [Card] = []
     var matches = 0
@@ -26,6 +27,8 @@ class GameScene: SKScene{
         let cardDistanceY = 400
         var value = -1
         var value2 = 0
+        
+        loadFile(type: type)
         
         // Creating cards and putting them into set
         for i in 0...11{
@@ -130,7 +133,7 @@ class GameScene: SKScene{
         let flip = SKAction.scaleX(to: 0, duration: 0.3)
         let flip2 = SKAction.scaleX(to: 1, duration: 0.3)
         let changeColor = SKAction.run({
-            node.texture = SKTexture(imageNamed: String("CardBack"))
+            node.texture = SKTexture(imageNamed: "CardBack")
         })
         let action = SKAction.sequence([flip, changeColor, flip2])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.9){
@@ -139,4 +142,18 @@ class GameScene: SKScene{
             
         }
     }
+    
+    func loadFile(type: Int){
+        let filename = String(type) + ".rtf"
+        print(filename)
+        do {
+            let contents = try String(contentsOfFile: filename)
+            let lines = contents.split(separator:"\n")
+            for i in 0...11{
+              print(lines[i])
+            }
+        } catch {
+            print("Error")
+        }
+        }
 }

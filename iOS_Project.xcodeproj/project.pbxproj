@@ -18,6 +18,8 @@
 		1FA17E7F269C63F90080429B /* iOS_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA17E7E269C63F90080429B /* iOS_ProjectUITests.swift */; };
 		1FB4EF6826A771DB007BF018 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */; };
 		314F444926AA134B002997F5 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F444826AA134A002997F5 /* EndScene.swift */; };
+		317EB64A26B8AC5F00C48078 /* 0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 317EB64926B8AC5F00C48078 /* 0.txt */; };
+		317EB64C26B8AD4100C48078 /* 0.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 317EB64B26B8AD4100C48078 /* 0.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		1FA17E80269C63F90080429B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		314F444826AA134A002997F5 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
+		317EB64926B8AC5F00C48078 /* 0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 0.txt; sourceTree = "<group>"; };
+		317EB64B26B8AD4100C48078 /* 0.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = 0.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				1FA17E72269C63F90080429B /* iOS_ProjectTests */,
 				1FA17E7D269C63F90080429B /* iOS_ProjectUITests */,
 				1FA17E56269C63F60080429B /* Products */,
+				317EB64926B8AC5F00C48078 /* 0.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +113,7 @@
 				1FA17E58269C63F60080429B /* AppDelegate.swift */,
 				1F933C4F26A5938000AB70B6 /* Card.swift */,
 				1FA17E5E269C63F60080429B /* GameScene.swift */,
+				317EB64B26B8AD4100C48078 /* 0.rtf */,
 				1FB4EF6726A771DB007BF018 /* MainMenuScene.swift */,
 				314F444826AA134A002997F5 /* EndScene.swift */,
 				1FA17E60269C63F60080429B /* GameViewController.swift */,
@@ -244,6 +250,8 @@
 				1FA17E64269C63F60080429B /* Main.storyboard in Resources */,
 				1FA17E66269C63F80080429B /* Assets.xcassets in Resources */,
 				1FA17E69269C63F80080429B /* LaunchScreen.storyboard in Resources */,
+				317EB64C26B8AD4100C48078 /* 0.rtf in Resources */,
+				317EB64A26B8AC5F00C48078 /* 0.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
