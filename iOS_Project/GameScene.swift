@@ -70,7 +70,6 @@ class GameScene: SKScene{
                 flipCard(node: node!)
                 node!.pressed = true
                 toCheck.append(node!)
-                print("Card pressed")
                 if(cardTouched){
                     checkMatch(set: toCheck)
                     toCheck.removeAll()
@@ -144,16 +143,15 @@ class GameScene: SKScene{
     }
     
     func loadFile(type: Int){
-        let filename = String(type) + ".rtf"
-        print(filename)
-        do {
-            let contents = try String(contentsOfFile: filename)
-            let lines = contents.split(separator:"\n")
-            for i in 0...11{
-              print(lines[i])
+        let filename = String(type)
+        let urlPath = Bundle.main.url(forResource: filename, withExtension: "txt")
+        if let path = urlPath {
+           if let dataFromFile = try? String(contentsOf: path) {
+               let lines = dataFromFile.split(separator:"\n")
+               for i in 0...11{
+                 print(lines[i])
+               }
+               }
             }
-        } catch {
-            print("Error")
         }
         }
-}
